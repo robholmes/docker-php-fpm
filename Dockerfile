@@ -18,6 +18,7 @@ RUN apt-get update && \
 ADD php-fpm.ini /etc/php5/fpm/conf.d/
 ADD php-fpm.ini /etc/php5/cli/conf.d/
 
+RUN rm /etc/php5/fpm/pool.d/www.conf
 ADD app.pool.conf /etc/php5/fpm/pool.d/
 
 RUN ln -sf /dev/stdout /var/log/php5-fpm.log
