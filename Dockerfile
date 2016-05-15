@@ -13,7 +13,10 @@ RUN apt-get update && \
                           php5-curl \
                           php5-intl \
                           php5-json \
-                          php5-mcrypt
+                          php5-mcrypt && \
+    apt-get remove -q -y software-properties-common language-pack-en-base && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD php-fpm.ini /etc/php5/fpm/conf.d/
 ADD php-fpm.ini /etc/php5/cli/conf.d/
